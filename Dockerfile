@@ -1,4 +1,4 @@
-FROM padster2012/base:latest
+FROM padster2012/docker-base:latest
 MAINTAINER Tim Haak <tim@haak.co>
 
 ENV SICKBEARD_VERSION master
