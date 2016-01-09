@@ -14,9 +14,9 @@ RUN apt-get -q update &&\
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-#VOLUME ["/config","/data"]
+VOLUME ["/config","/data"]
 #ADD ./start.sh /start.sh
 #RUN chmod u+x  /start.sh
 
 EXPOSE 8081
-CMD ["/start.sh"]
+CMD ["python", "/sickbeard/SickBeard.py", "-p", "PORT"]
