@@ -1,4 +1,4 @@
-FROM ubuntu:14:04
+FROM ubuntu:14.04
 MAINTAINER Tim Haak <tim@haak.co>
 
 ENV SICKBEARD_VERSION master
