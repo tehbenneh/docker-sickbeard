@@ -1,11 +1,11 @@
-FROM padster2012/docker-base:latest
+FROM ubuntu:14:04
 MAINTAINER Tim Haak <tim@haak.co>
 
 ENV SICKBEARD_VERSION master
 
 RUN apt-get -q update &&\
     apt-get install -qy --force-yes python-cheetah && \
-    curl -L https://github.com/midgetspy/Sick-Beard/tarball/$SICKBEARD_VERSION -o sickbeard.tgz && \
+    curl -L https://github.com/midgetspy/Sick-Beard/tarball/master -o sickbeard.tgz && \
     tar -xvf sickbeard.tgz -C /  &&\
     mv /midgetspy-Sick-Beard-* /sickbeard/ &&\
     rm  /sickbeard.tgz && \
@@ -14,11 +14,9 @@ RUN apt-get -q update &&\
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
-VOLUME ["/config","/data"]
+#VOLUME ["/config","/data"]
+#ADD ./start.sh /start.sh
+#RUN chmod u+x  /start.sh
 
-ADD ./start.sh /start.sh
-RUN chmod u+x  /start.sh
-
-EXPOSE 8084
-
+EXPOSE 8081
 CMD ["/start.sh"]
